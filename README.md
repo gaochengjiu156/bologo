@@ -71,6 +71,7 @@ hugo server -D
 - **`baseURL` 必须与实际部署地址一致且结尾带斜杠**，否则本地构建出的 RSS、sitemap、canonical 链接会指向错误域名。GitHub Actions 构建时会用 Pages 实际地址覆盖它，所以部署本身不受影响。
 - `hasCJKLanguage = true` 已开启，中文按字统计，阅读时长与摘要才会正确；不要关掉。
 - 文章文件名即 URL 路径（`permalinks` 使用 `:contentbasename`）。**用英文短横线命名**，例如 `hello-hugo.md`，地址就是 `/posts/2026/11/hello-hugo/`；中文文件名会生成百分号编码的地址。
+- 文章图片放在 `static/images/`，正文里写 `![说明文字](/images/文件名.png)` 即可。`layouts/_default/_markup/render-image.html` 会自动按站点子路径补全前缀，本地预览和线上都能正确显示。
 - 新文章默认 `draft: true`，不会出现在线上，提交前记得改为 `false`。
 - `public/` 是构建产物，已在 `.gitignore` 中忽略，不要提交。
 
