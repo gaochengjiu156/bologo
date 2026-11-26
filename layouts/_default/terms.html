@@ -1,0 +1,21 @@
+{{ define "main" }}
+  <section class="page-intro">
+    <p class="eyebrow">TAGS</p>
+    <h1>{{ .Title }}</h1>
+    <p>共 {{ len .Data.Terms }} 个标签，{{ len (where site.RegularPages "Section" "posts") }} 篇文章。</p>
+  </section>
+
+  {{ if .Data.Terms }}
+    <div class="tag-cloud">
+      {{ range .Data.Terms.ByCount }}
+        <a class="tag-chip" href="{{ .Page.RelPermalink }}">#{{ .Page.LinkTitle }}<span>{{ .Count }}</span></a>
+      {{ end }}
+    </div>
+  {{ else }}
+    <div class="empty-state">
+      <span class="empty-mark" aria-hidden="true">✳</span>
+      <h3>还没有标签</h3>
+      <p>在文章 front matter 里写 <code>tags: [随笔]</code>，标签会自动出现在这里。</p>
+    </div>
+  {{ end }}
+{{ end }}

@@ -1,0 +1,16 @@
+{{ define "main" }}
+  <article class="post">
+    <header class="post-header">
+      <a class="back-link" href="{{ "posts/" | relURL }}">← 返回文章列表</a>
+      <p class="eyebrow">{{ .Date.Format "2006 年 01 月 02 日" }} · {{ .ReadingTime }} 分钟阅读</p>
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p class="post-description">{{ . }}</p>{{ end }}
+    </header>
+    <div class="post-content">{{ .Content }}</div>
+    {{ with .GetTerms "tags" }}
+      <ul class="tag-list" aria-label="标签">
+        {{ range . }}<li><a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a></li>{{ end }}
+      </ul>
+    {{ end }}
+  </article>
+{{ end }}

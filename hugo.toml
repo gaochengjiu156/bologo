@@ -1,0 +1,28 @@
+# 部署到 GitHub Pages 后，把 baseURL 改为实际地址，结尾必须保留斜杠：
+# 项目站点 https://<用户名>.github.io/<仓库名>/
+# 用户站点 https://<用户名>.github.io/
+baseURL = "https://example.org/"
+locale = "zh-CN"
+defaultContentLanguage = "zh-cn"
+title = "拾页"
+enableRobotsTXT = true
+
+# 中文按字计算词数，否则 .ReadingTime / .WordCount / .Summary 全部失真
+hasCJKLanguage = true
+timeZone = "Asia/Shanghai"
+
+[params]
+  description = "一个用于收藏文章、笔记与灵感的安静角落。"
+
+[pagination]
+  pagerSize = 10
+
+[permalinks]
+  posts = "/posts/:year/:month/:slug/"
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+
+  [markup.highlight]
+    noClasses = false

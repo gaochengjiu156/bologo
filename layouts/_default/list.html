@@ -1,0 +1,29 @@
+{{ define "main" }}
+  <section class="page-intro">
+    <p class="eyebrow">THE ARCHIVE</p>
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p>{{ . }}</p>{{ end }}
+  </section>
+  {{ $paginator := .Paginate .Pages.ByDate.Reverse }}
+  {{ if $paginator.Pages }}
+    <div class="article-list">
+      {{ range $paginator.Pages }}
+        <article class="article-card">
+          <div class="article-meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006 年 01 月 02 日" }}</time><span>{{ .ReadingTime }} 分钟阅读</span></div>
+          <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+          {{ with .Description }}<p>{{ . }}</p>{{ else }}<p>{{ .Summary | plainify | htmlUnescape | truncate 120 }}</p>{{ end }}
+          <a class="card-arrow" href="{{ .RelPermalink }}" aria-label="阅读：{{ .Title }}">↗</a>
+        </article>
+      {{ end }}
+    </div>
+    {{ if gt $paginator.TotalPages 1 }}
+      <nav class="pagination" aria-label="分页">
+        {{ with $paginator.Prev }}<a href="{{ .URL }}">← 较新</a>{{ else }}<span aria-hidden="true"></span>{{ end }}
+        <span class="page-info">{{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}</span>
+        {{ with $paginator.Next }}<a href="{{ .URL }}">较早 →</a>{{ else }}<span aria-hidden="true"></span>{{ end }}
+      </nav>
+    {{ end }}
+  {{ else }}
+    <div class="empty-state"><h2>还没有文章</h2><p>第一篇文章将在这里出现。</p></div>
+  {{ end }}
+{{ end }}
