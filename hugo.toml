@@ -16,7 +16,8 @@ timeZone = "Asia/Shanghai"
   pagerSize = 10
 
 [permalinks]
-  posts = "/posts/:year/:month/:slug/"
+  # 用文件名而非标题生成路径：中文标题不会变成百分号编码的 URL
+  posts = "/posts/:year/:month/:contentbasename/"
 
 [markup]
   [markup.goldmark.renderer]
