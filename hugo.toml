@@ -1,7 +1,5 @@
-# 部署到 GitHub Pages 后，把 baseURL 改为实际地址，结尾必须保留斜杠：
-# 项目站点 https://<用户名>.github.io/<仓库名>/
-# 用户站点 https://<用户名>.github.io/
-baseURL = "https://example.org/"
+# 站点地址；结尾斜杠必需。换自定义域名时只改这一行。
+baseURL = "https://gaochengjiu156.github.io/bologo/"
 locale = "zh-CN"
 defaultContentLanguage = "zh-cn"
 title = "拾页"
