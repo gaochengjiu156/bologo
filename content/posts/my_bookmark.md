@@ -12,9 +12,9 @@ cd E:\bologo
 
 git add .
 
-git commit -m 
+git commit -m "新增一篇文章"
 
-git push  
+git push     
 
 <https://www.phonevalidator.com/>   手机号码检测是否实体卡
 
@@ -39,6 +39,3 @@ git push
 <https://www.testmyspeed.com/> 测网速的网站
 
 <https://mesimgo.com/zh-tw?ref=9KKELTV5>   全球各地esim卡
-
-
-
